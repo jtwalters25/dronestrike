@@ -89,7 +89,15 @@
             Data.loadAll(rows);
             callback();
           } else {
-            $.get('http://api.dronestre.am/data')
+            $.ajax({
+              url: 'http://api.dronestre.am/data',
+              method: 'GET',
+              headers: {
+                response('Access-Control-Allow-Origin'): '*',
+                response('Access-Control-Allow-Headers'): 'Origin, X-Requested-With, Content-Type, Accept'
+              }
+            })
+
              .then(rawData => {
                rawData.forEach(function(item) {
                var strike = new Data(item);
