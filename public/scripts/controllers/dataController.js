@@ -3,55 +3,55 @@
 (function(module) {
   var dataController = {};
 
-  Article.createTable();
+  Data.createTable();
 
   dataController.index = function(ctx, next) {
-    if(ctx.articles.length) {
-      articleView.index(ctx.articles);
+    if(ctx.data.length) {
+      dataView.index(ctx.data);
     } else{
       page('/');
     }
   };
 
   dataController.loadById = function(ctx, next) {
-    var articleData = function(article) {
-      ctx.articles = article;
+    var droneData = function(data) {
+      ctx.data = data;
       next();
     };
-    Article.findWhere('id', ctx.params.id, articleData);
+    Data.findWhere('id', ctx.params.id, droneData);
   };
 
   dataController.loadByAuthor = function(ctx, next) {
-    var authorData = function(articlesByAuthor) {
-      ctx.articles = articlesByAuthor;
+    var authorData = function(dataByAuthor) {
+      ctx.data = dataByAuthor;
       next();
     };
 
-    Article.findWhere(
+    Data.findWhere(
       'author', ctx.params.authorName.replace('+', ' '), authorData
     );
   };
 
   dataController.loadByCategory = function(ctx, next) {
-    var categoryData = function(articlesInCategory) {
-      ctx.articles = articlesInCategory;
+    var categoryData = function(dataInCategory) {
+      ctx.data = dataInCategory;
       next();
     };
 
-    Article.findWhere('category', ctx.params.categoryName, categoryData);
+    Data.findWhere('category', ctx.params.categoryName, categoryData);
   };
 
   dataController.loadAll = function(ctx, next) {
-    var articleData = function(allArticles) {
-      ctx.articles = Article.allArticles;
+    var droneData = function(allData) {
+      ctx.data = Data.allData;
       next();
     };
 
-    if (Article.allArticles.length) {
-      ctx.articles = Article.allArticles;
+    if (Data.allData.length) {
+      ctx.data = Data.allData;
       next();
     } else {
-      Article.fetchAll(articleData);
+      Data.fetchAll(droneData);
     }
   };
 
