@@ -18,7 +18,7 @@
       ctx.data = data;
       next();
     };
-    Data.findWhere('id', ctx.params.id, droneData);
+    Data.findWhere('_id', ctx.params.id, droneData);
   };
 
   dataController.loadByAuthor = function(ctx, next) {
