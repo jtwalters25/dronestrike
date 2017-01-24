@@ -5,7 +5,7 @@ page('/',
   dataController.index);
 
 page('/');
-page('/aboutUs', aboutController.index);
+// page('/aboutUs', aboutController.index);
 page('/strikes', mapController.index);
 
 page('/data/:_id',

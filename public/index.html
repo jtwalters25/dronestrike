@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="styles/layout.css">
     <link rel="stylesheet" href="styles/module.css">
     <link href="https://fonts.googleapis.com/css?family=Orbitron|Oswald" rel="stylesheet">
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.js"></script>
     <title>DroneStrike</title>
   </head>
   <body>
@@ -26,13 +26,11 @@
         <p>instructions hcud, ncbicudi. Hnciofb jdiufb ncn icbekcbfh.  Jbifdkbj bjckds kjhcdel bhjfd bvhfid .  H hvuifoebovfbdsvbfdbvfdl nbvfdjsbhkvfb vdsvfdsv,vfdvbfd?  U fdjsbvgfnbdjklgfbjlk.  Mbvfdjksbvfhjdbjvhfdsbjvfbj.</p>
       </section>
       <section class="tabContent" id="strikes">
-        <div class="stats">
+        <div>
           <h2>Stats</h2>
           <div id="resultBox">
-            <ul id="piclist"></ul>
-            <div id="chartcontainer">
-              <canvas id="myChart" width="1100" height="400"></canvas>
-            </div>
+            <p>h</p>
+
           </div>
         </div>
 
@@ -49,6 +47,7 @@
     </nav>
       <div id="map">
       </div>
+      <canvas id="myChart" width="1100" height="400"></canvas>
     </main>
     <footer>&copy DroneStrike 2017</footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -68,6 +67,7 @@
     <!-- Controller files: -->
     <script src="scripts/controllers/dataController.js"></script>
       <script src="scripts/controllers/routes.js"></script>
+    <script src="scripts/views/chartView.js"></script>
     <script src="scripts/views/mapView.js"></script>
     <!-- Controller files: -->
     <script src="scripts/controllers/mapController.js"></script>

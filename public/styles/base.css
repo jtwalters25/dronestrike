@@ -51,7 +51,10 @@ main{
   background-repeat: no-repeat;
   background-position: center;
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> master
 
 #map {
   height: 100%;
@@ -59,6 +62,7 @@ main{
 
  /* Makes the sample page fill the window. */
  html, body {
+   display: flex;
    height: 100%;
    margin: 0;
    padding: 0;
