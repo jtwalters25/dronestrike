@@ -94,17 +94,16 @@
               dataType: 'jsonp'
             })
              .then(rawData => {
-               console.log(rawData.strike);
                rawData.strike.forEach(function(item) {
                var strike = new Data(item);
                strike.insertRecord();
                });
-            //    webDB.execute(
-            //     'SELECT * FROM strikes ORDER BY date DESC',
-            //     function(rows) {
-            //       Data.loadAll(rows);
-            //       callback();
-            //     });
+               webDB.execute(
+                'SELECT * FROM strikes ORDER BY date DESC',
+                function(rows) {
+                  Data.loadAll(rows);
+                  callback();
+                });
              });
           }
         });
@@ -122,7 +121,6 @@
           );
         };
 
-        // DONE: Example of synchronous, FP approach to getting unique data
         Data.allCountries = function() {
           return Data.allData.map(function(strike) {
             return strike.country;
