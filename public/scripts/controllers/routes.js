@@ -4,13 +4,13 @@ page('/',
   dataController.loadAll,
   dataController.index);
 
-page('/');
-// page('/aboutUs', aboutController.index);
-page('/strikes', mapController.index);
+page('/map', mapController.);
+page('/stats', chartView.makeChart);
 
-page('/data/:_id',
-  dataController.loadById,
-  dataController.index);
+
+// page('/data/:_id',
+//   dataController.loadById,
+//   dataController.index);
 
 // Redirect home if the default filter option is selected:
 // page('/category', '/');
