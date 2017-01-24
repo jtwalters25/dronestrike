@@ -39,7 +39,6 @@
           <h2>Map</h2>
       </section>
       <section class="tabContent" id="aboutUs">
-
         <ul>
           <li>Cayla</li>
           <li>Gary</li>
@@ -47,9 +46,15 @@
           <li>Jeremiah</li>
         </ul>
       </section>
+    </nav>
+      <div id="map">
+      </div>
     </main>
     <footer>&copy DroneStrike 2017</footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWWDM2zg3LWTdod7nMMrhamezsrAD3CM&v=3.exp&libraries=visualization"></script>
     <script src="vendor/scripts/handlebars.js"></script>
     <script src="vendor/scripts/html5sql.js"></script>
     <script src="vendor/scripts/webdb.js"></script>
@@ -60,10 +65,14 @@
     <!-- View files: -->
     <script src="scripts/views/mainView.js" type="text/Javascript"></script>
     <script src="scripts/views/dataView.js"></script>
-    <script src="scripts/views/maps.js"></script>
     <!-- Controller files: -->
     <script src="scripts/controllers/dataController.js"></script>
-    <script src="scripts/controllers/routes.js"></script>
+      <script src="scripts/controllers/routes.js"></script>
+    <script src="scripts/views/mapView.js"></script>
+    <!-- Controller files: -->
+    <script src="scripts/controllers/mapController.js"></script>
+    <script src="scripts/controllers/dataController.js"></script>
+    <script src="/scripts/controllers/routes.js"></script>
   </body>
 
 </html>
