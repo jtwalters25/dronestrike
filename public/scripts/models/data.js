@@ -12,28 +12,27 @@
   Data.createTable = function(callback) {
     webDB.execute(
       'CREATE TABLE IF NOT EXISTS strikes (' +
-      '_id INTEGER PRIMARY KEY, ' +
+      'id INTEGER PRIMARY KEY,' +
       'number INTEGER, ' +
-      'country VARCHAR(25), ' +
-      'date DATETIME (30), ' +
+      'country VARCHAR (25), ' +
+      'date VARCHAR (30), ' +
       'narrative VARCHAR (255), ' +
       'town VARCHAR (25), ' +
-      'location VARCHAR(60), ' +
-      'deaths VARCHAR(255), ' +
-      'deaths_min INTEGER, ' +
-      'deaths_max INTEGER, ' +
-      'civilians INTEGER, ' +
-      'injuries INTEGER, ' +
-      'children INTEGER, ' +
-      'tweet_id INTEGER, ' +
-      'bureau_id VARCHAR(25), ' +
+      'location VARCHAR (60), ' +
+      'deaths VARCHAR (255), ' +
+      'deaths_min VARCHAR (10), ' +
+      'deaths_max VARCHAR (10), ' +
+      'civilians VARCHAR (10), ' +
+      'injuries VARCHAR (10), ' +
+      'children VARCHAR (10), ' +
+      'tweet_id VARCHAR (20), ' +
+      'bureau_id VARCHAR (25), ' +
       'bij_summary_short VARCHAR(255), ' +
-      'bij_link VARCHAR(60), ' +
-      'target VARCHAR(60), ' +
-      'lat DECIMAL(2,8), ' +
-      'lon DECIMAL(3,8), ' +
-      'articles VARCHAR(100), ' +
-      'names VARCHAR(1200));',
+      'bij_link VARCHAR (60), ' +
+      'target VARCHAR (60), ' +
+      'lat VARCHAR (15), ' +
+      'lon VARCHAR (15), ' +
+      'names VARCHAR (1200));',
       callback
     );
   };
@@ -43,11 +42,10 @@
       [
         {
           'sql': 'INSERT INTO strikes ' +
-          ('_id, number, country, date, narrative, town, location, deaths, deaths_min, deaths_max, civilians, injuries, children, tweet_id, bureau_id, bij_summary_short, bij_link, target, lat, lon, articles, names') +
-          'VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);',
+          '(number, country, date, narrative, town, location, deaths, deaths_min, deaths_max, civilians, injuries, children, tweet_id, bureau_id, bij_summary_short, bij_link, target, lat, lon, names) ' +
+          'VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);',
           'data':
           [
-            this._id,
             this.number,
             this.country,
             this.date,
@@ -67,8 +65,8 @@
             this.target,
             this.lat,
             this.lon,
-            this.articles,
-            this.names]
+            this.names
+          ]
         }
       ],
         callback
@@ -83,36 +81,34 @@
 
     Data.fetchAll = function(callback) {
       webDB.execute(
-        'SELECT * FROM strikes ORDER BY publishedOn DESC',
+        'SELECT * FROM strikes ORDER BY number DESC',
         function(rows) {
           if (rows.length) {
+            console.log('in the if of fetchall');
             Data.loadAll(rows);
             callback();
           } else {
             $.ajax({
               url: 'http://api.dronestre.am/data',
               method: 'GET',
-              headers: {
-                response('Access-Control-Allow-Origin'): '*',
-                response('Access-Control-Allow-Headers'): 'Origin, X-Requested-With, Content-Type, Accept'
-              }
+              dataType: 'jsonp'
             })
-
              .then(rawData => {
-               rawData.forEach(function(item) {
+               console.log(rawData.strike);
+               rawData.strike.forEach(function(item) {
                var strike = new Data(item);
                strike.insertRecord();
-              });
-              webDB.execute(
-                'SELECT * FROM strikes ORDER BY date DESC',
-                function(rows) {
-                  Data.loadAll(rows);
-                  callback();
-                });
-              });
-            }
-          });
-        };
+               });
+            //    webDB.execute(
+            //     'SELECT * FROM strikes ORDER BY date DESC',
+            //     function(rows) {
+            //       Data.loadAll(rows);
+            //       callback();
+            //     });
+             });
+          }
+        });
+    };
 
         Data.findWhere = function(field, value, callback) {
           webDB.execute(
@@ -127,9 +123,9 @@
         };
 
         // DONE: Example of synchronous, FP approach to getting unique data
-        Data.allAuthors = function() {
+        Data.allCountries = function() {
           return Data.allData.map(function(strike) {
-            return strike.author;
+            return strike.country;
           })
           .reduce(function(names, name) {
             if (names.indexOf(name) === -1) {

@@ -6,10 +6,10 @@ page('/',
   dataController.loadAll,
   dataController.index);
 
-page('/about', aboutController.index);
-page('/admin', adminController.index);
+// page('/about', aboutController.index);
+// page('/admin', adminController.index);
 
-page('/data/:id',
+page('/data/:_id',
   dataController.loadById,
   dataController.index);
 
