@@ -1,5 +1,5 @@
 body {
-  display: flex;
+  display: block;
 
   background-color: rgb(0, 0, 0);
   color: rgb(162, 8, 8);
@@ -23,7 +23,7 @@ h1{
 }
 
 h2{
-  display: inline-block;
+  display:
 }
 
 .tabContent{
