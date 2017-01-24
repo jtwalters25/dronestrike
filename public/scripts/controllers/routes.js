@@ -1,5 +1,3 @@
-'use strict'
-
 'use strict';
 
 page('/',
@@ -8,22 +6,22 @@ page('/',
 
 // page('/about', aboutController.index);
 // page('/admin', adminController.index);
-
-page('/data/:_id',
-  dataController.loadById,
-  dataController.index);
+//
+// page('/data/:id',
+//   dataController.loadById,
+//   dataController.index);
 
 // Redirect home if the default filter option is selected:
-page('/category', '/');
-page('/author', '/');
-
-page('/author/:authorName',
-  dataController.loadByAuthor,
-  dataController.index);
-
-page('/category/:categoryName',
-  dataController.loadByCategory,
-  dataController.index);
+// page('/category', '/');
+// page('/author', '/');
+//
+// page('/author/:authorName',
+//   dataController.loadByAuthor,
+//   dataController.index);
+//
+// page('/category/:categoryName',
+//   dataController.loadByCategory,
+//   dataController.index);
 
 page('*', function(){
   $('body').text('Not found!');
