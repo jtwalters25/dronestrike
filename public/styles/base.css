@@ -1,7 +1,7 @@
-/*body {*/
-  /*display: flex;*/
+body {
+  display: flex;
 
-  /*background-color: rgb(0, 0, 0);
+  background-color: rgb(0, 0, 0);
   color: rgb(162, 8, 8);
   text-shadow: .5px .5px white;
   font-family:'Oswald', sans-serif;
@@ -50,8 +50,7 @@ main{
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-}*/
-
+}
 
 #map {
   height: 100%;
@@ -59,6 +58,7 @@ main{
 
  /* Makes the sample page fill the window. */
  html, body {
+   display: flex;
    height: 100%;
    margin: 0;
    padding: 0;
