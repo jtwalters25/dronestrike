@@ -98,7 +98,7 @@ a {
   a:active,
 a:hover {
   outline-width: 0;
-  text-decoration: underline;
+  /*text-decoration: underline;*/
 
 }
 h4 a:hover {
