@@ -13,7 +13,7 @@ body {
   padding: inherit;
 }
 header{
-  background-color: tan;
+  background-color: rgb(0, 25, 79);
   display: block;
   text-align: center;
   height: 4em;
@@ -22,6 +22,10 @@ header{
 h1{
   font-family: 'Orbitron', sans-serif;
   padding:39px;
+}
+
+h2{
+  display: inline-block;
 }
 
 .tabContent{
@@ -36,7 +40,7 @@ h1{
   padding: 0.313em;
   margin: 10px;
   margin-bottom: 10px;
-  margin-left: -1px;
+
 
 }
 
