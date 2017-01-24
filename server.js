@@ -22,5 +22,5 @@ app.get('*', function(request, response){
  response.sendFile('404.html', {root: './public'});
 })
 app.listen(PORT, function(){
- console.log('server is up and running. and can be accessed at localhost:5000');
+ console.log(`server is up and running. and can be accessed at localhost:${PORT}`);
 })
