@@ -133,9 +133,9 @@
           }, []);
         };
 
-        Data.allCategories = function(callback) {
-          webDB.execute('SELECT DISTINCT category FROM strikes;', callback);
-        };
+        // Data.allCategories = function(callback) {
+        //   webDB.execute('SELECT DISTINCT category FROM strikes;', callback);
+        // };
 
           module.Data = Data;
         })(window);
