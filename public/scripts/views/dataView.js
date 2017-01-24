@@ -12,19 +12,19 @@
   dataView.populateFilters = function() {
     var options;
     var template = Handlebars.compile($('#option-template').text());
-    options = Data.allAuthors()
-      .map(function(author) {
-        return template({val: author});
+    options = Data.allCountries()
+      .map(function(country) {
+        return template({val: country});
       });
     $('#author-filter').append(options);
 
-    Data.allCategories(function(rows) {
-      $('#category-filter').append(
-        rows.map(function(row) {
-          return template({val: row.category});
-        })
-      );
-    });
+    // Data.allCategories(function(rows) {
+    //   $('#category-filter').append(
+    //     rows.map(function(row) {
+    //       return template({val: row.category});
+    //     })
+    //   );
+    // });
   };
 
   dataView.handleFilters = function() {
