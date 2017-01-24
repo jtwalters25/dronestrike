@@ -26,8 +26,16 @@
         <p>instructions hcud, ncbicudi. Hnciofb jdiufb ncn icbekcbfh.  Jbifdkbj bjckds kjhcdel bhjfd bvhfid .  H hvuifoebovfbdsvbfdbvfdl nbvfdjsbhkvfb vdsvfdsv,vfdvbfd?  U fdjsbvgfnbdjklgfbjlk.  Mbvfdjksbvfhjdbjvhfdsbjvfbj.</p>
       </section>
       <section class="tabContent" id="strikes">
-        <div class="">
+        <div class="stats">
           <h2>Stats</h2>
+          <div id="resultBox">
+            <ul id="piclist"></ul>
+            <div id="chartcontainer">
+              <canvas id="myChart" width="1100" height="400"></canvas>
+            </div>
+          </div>
+        </div>
+
           <h2>Map</h2>
       </section>
       <section class="tabContent" id="aboutUs">
@@ -44,6 +52,8 @@
     </main>
     <footer>&copy DroneStrike 2017</footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWWDM2zg3LWTdod7nMMrhamezsrAD3CM&v=3.exp&libraries=visualization"></script>
     <script src="vendor/scripts/handlebars.js"></script>
     <script src="vendor/scripts/html5sql.js"></script>
@@ -55,6 +65,9 @@
     <!-- View files: -->
     <script src="scripts/views/mainView.js" type="text/Javascript"></script>
     <script src="scripts/views/dataView.js"></script>
+    <!-- Controller files: -->
+    <script src="scripts/controllers/dataController.js"></script>
+      <script src="scripts/controllers/routes.js"></script>
     <script src="scripts/views/mapView.js"></script>
     <!-- Controller files: -->
     <script src="scripts/controllers/mapController.js"></script>
