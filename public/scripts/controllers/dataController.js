@@ -26,9 +26,7 @@
       ctx.data = dataByCountry;
       next();
     };
-    Data.findWhere(
-      'country', ctx.params.countryName.replace('+', ' '), countryData
-    );
+    Data.findWhere('country', ctx.params.countryName.replace('+', ' '), countryData);
   };
   //
   // dataController.loadByCategory = function(ctx, next) {

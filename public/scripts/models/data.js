@@ -96,6 +96,7 @@
             })
              .then(rawData => {
                rawData.strike.forEach(function(item) {
+                 console.log('rawData', rawData.strike);
                  var strike = new Data(item);
                  strike.insertRecord();
                });

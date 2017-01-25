@@ -9,6 +9,8 @@ page('/map', mapController.index);
 page('/stats', chartController.index);
 page('/about', aboutController.index);
 
-page('/somalia', somaliaController.index);
+page('/map/:countryName',
+  countryController.loadByCountry,
+  countryController.index);
 
 page();
