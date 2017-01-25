@@ -11,23 +11,29 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('./public'));
 
-app.get('/map.html', function(request, response){
+app.get('/map', function(request, response){
   response.sendFile('index.html', {root: './public'});
 })
 
-app.get('/about.html', function(request, response){
+app.get('/somalia', function(request, response){
   response.sendFile('index.html', {root: './public'});
 })
 
-app.get('/stat.html', function(request, response){
+app.get('/about', function(request, response){
   response.sendFile('index.html', {root: './public'});
 })
 
-app.get('/index.html', function(request, response){
+app.get('/stats', function(request, response){
   response.sendFile('index.html', {root: './public'});
 })
 
+app.get('/index', function(request, response){
+  response.sendFile('index.html', {root: './public'});
+})
 
+app.get('/', function(request, response){
+  response.sendFile('index.html', {root: './public'});
+})
 
 
 app.get('*', function(request, response){
