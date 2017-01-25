@@ -49,16 +49,23 @@
       map.setCenter(center);
     });
 
+    webDB.execute(
+      'SELECT * FROM strikes WHERE country = "Somalia"',
+        function(rows) {
+        Data.loadAll(rows);
+        Data.allData.forEach(val => {
+          var lat = parseFloat(val.lat);
+          var lng = parseFloat(val.lon);
+          var marker = new google.maps.Marker({
+            position: {lat: lat, lng: lng},
+            map: map,
+          });
+        })
+        });
+
   }
 
-// array.forEach(val => {
-//   var lat = parseFloat(val.lat);
-//   var lng = parseFloat(val.lon);
-//   var marker = new google.maps.Marker({
-//     position: {lat: lat, lng: lng},
-//     map: map,
-//   });
-// })
+
 
 
   module.somaliaView = somaliaView;

@@ -11,7 +11,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('./public'));
 
-app.get('/map/*', function(request, response){
+app.get('/map', function(request, response){
   response.sendFile('index.html', {root: './public'});
 })
 

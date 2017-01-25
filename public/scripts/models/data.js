@@ -84,7 +84,7 @@
         'SELECT * FROM strikes ORDER BY number DESC',
         function(rows) {
           if (rows.length) {
-            console.log('rows',rows);
+            console.log('rows in datafetchall',rows);
             Data.loadAll(rows);
             ctx.data = Data.allData;
             next();
@@ -120,7 +120,7 @@
                 data: [value]
               }
             ],
-            callback
+            callback()
           );
         };
 
