@@ -1,5 +1,6 @@
 'use strict';
 page('/',
+homeController.index,
 Data.fetchAll,
 dataController.loadAll,
 dataController.index);
