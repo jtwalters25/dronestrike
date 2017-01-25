@@ -19,7 +19,7 @@ app.get('/about', function(request, response){
   response.sendFile('index.html', {root: './public'});
 })
 
-app.get('/stat', function(request, response){
+app.get('/stats', function(request, response){
   response.sendFile('index.html', {root: './public'});
 })
 
