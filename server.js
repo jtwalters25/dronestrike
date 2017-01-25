@@ -1,6 +1,6 @@
 'use strict'
 
-// const pg = require('pg');
+const pg = require('pg');
 const express = require('express');
 const bodyParser = require('body-parser');
 const PORT = process.env.PORT || 3000;
@@ -40,6 +40,26 @@ app.get('*', function(request, response){
   console.log('New request', request.url);
   response.sendFile('404.html', {root: './public'});
 })
+
+// NOTE: Routes for making API calls to enact CRUD Operations on our database
+app.get('/articles/all', (request, response) => {
+  let client = new pg.Client(conString);
+
+  client.connect(err => {
+    if (err) console.error(err);
+    client.query(
+      `SELECT * FROM strikes;`,
+      (err, result) => {
+        if (err) console.error(err);
+        response.send(result);
+        client.end();
+      }
+    );
+  })
+});
+
+
+
 app.listen(PORT, function(){
   console.log(`server is up and running. and can be accessed at localhost:${PORT}`);
 })
