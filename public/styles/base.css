@@ -55,6 +55,13 @@ img{
   max-width: 100%;
 }
 
+main{
+  background-image: url('imgs/PredatorDrone-06.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
 #strikeMap{
   display: flex;
 }
