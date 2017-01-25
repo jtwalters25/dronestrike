@@ -1,8 +1,7 @@
 'use strict';
 
-var testArray = [];
-(function(module) {
-  var dataController = {};
+(function(mod) {
+  const dataController = {};
 
   Data.createTable();
 
@@ -14,52 +13,46 @@ var testArray = [];
     }
   };
 
-  dataController.loadById = function(ctx, next) {
-    var droneData = function(data) {
-      ctx.data = data;
+  // dataController.loadById = function(ctx, next) {
+  //   let droneData = function(data) {
+  //     ctx.data = data;
+  //     next();
+  //   };
+  //   Data.findWhere('id', ctx.params.id, droneData);
+  // };
+  //
+  dataController.loadByCountry = function(ctx, next) {
+    let countryData = function(dataByCountry) {
+      ctx.data = dataByCountry;
       next();
     };
-    Data.findWhere('_id', ctx.params.id, droneData);
-  };
-
-  dataController.loadByAuthor = function(ctx, next) {
-    var authorData = function(dataByAuthor) {
-      ctx.data = dataByAuthor;
-      next();
-    };
-
     Data.findWhere(
-      'author', ctx.params.authorName.replace('+', ' '), authorData
+      'country', ctx.params.countryName.replace('+', ' '), countryData
     );
   };
-
-  dataController.loadByCategory = function(ctx, next) {
-    var categoryData = function(dataInCategory) {
-      ctx.data = dataInCategory;
-      next();
-    };
-
-    Data.findWhere('category', ctx.params.categoryName, categoryData);
-  };
+  //
+  // dataController.loadByCategory = function(ctx, next) {
+  //   var categoryData = function(dataInCategory) {
+  //     ctx.data = dataInCategory;
+  //     next();
+  //   };
+  //
+  //   Data.findWhere('category', ctx.params.categoryName, categoryData);
+  // }
 
   dataController.loadAll = function(ctx, next) {
+    if (Data.allData.length) {
     var droneData = function(allData) {
       ctx.data = Data.allData;
-      testArray = Data.allData;
-      // next();
     };
-
-    var bill = Data.allData.length;
-    console.log('mylenght is',bill);
 
     if (Data.allData.length) {
       console.log('what up punk');
       ctx.data = Data.allData;
       next();
-    } else {
-      Data.fetchAll(droneData);
     }
-  };
+    }
+  }
 
-  module.dataController = dataController;
+  mod.dataController = dataController;
 })(window);
