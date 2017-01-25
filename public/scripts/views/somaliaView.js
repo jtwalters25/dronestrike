@@ -60,10 +60,17 @@
             position: {lat: lat, lng: lng},
             map: map,
           });
+          var infowindow = new google.maps.InfoWindow({
+          content: `town: ${val.town}, location: ${val.location}, deaths: ${val.deaths}, injuries: ${val.injuries}`
+        });
+        marker.addListener('click', function() {
+          infowindow.open(map, marker);
+        });
         })
         });
-
   }
+
+
 
 
 
