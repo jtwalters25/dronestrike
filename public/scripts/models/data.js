@@ -79,14 +79,15 @@
       });
     };
 
-    Data.fetchAll = function(callback) {
+    Data.fetchAll = function(ctx, next) {
       webDB.execute(
         'SELECT * FROM strikes ORDER BY number DESC',
         function(rows) {
           if (rows.length) {
-            console.log('in the if of fetchall');
+            console.log('rows',rows);
             Data.loadAll(rows);
-            callback();
+            ctx.data = Data.allData;
+            next();
           } else {
             $.ajax({
               url: 'http://api.dronestre.am/data',
@@ -95,14 +96,15 @@
             })
              .then(rawData => {
                rawData.strike.forEach(function(item) {
-               var strike = new Data(item);
-               strike.insertRecord();
+                 var strike = new Data(item);
+                 strike.insertRecord();
                });
                webDB.execute(
                 'SELECT * FROM strikes ORDER BY date DESC',
                 function(rows) {
                   Data.loadAll(rows);
-                  callback();
+                  ctx.data = Data.allData;
+                  next();
                 });
              });
           }
