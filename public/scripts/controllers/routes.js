@@ -5,6 +5,7 @@ page('/',
   dataController.loadAll,
   dataController.index);
 
+
 // page('/map', blah.blah, blah.blah);
 //
 // page('/pakistan', blah.blah, blah.blah);
@@ -28,6 +29,22 @@ page('/',
 //   dataController.loadByCountry,
 //   dataController.index);
 //
+
+page('/map', mapController.);
+page('/stats', chartView.makeChart);
+
+
+// page('/data/:_id',
+//   dataController.loadById,
+//   dataController.index);
+
+// Redirect home if the default filter option is selected:
+// page('/category', '/');
+// page('/author', '/');
+//
+// page('/author/:authorName',
+//   dataController.loadByAuthor,
+//   dataController.index);
 // page('/category/:categoryName',
 //   dataController.loadByCategory,
 //   dataController.index);
