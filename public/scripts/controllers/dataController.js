@@ -1,5 +1,6 @@
 'use strict';
 
+var testArray = [];
 (function(module) {
   var dataController = {};
 
@@ -44,10 +45,15 @@
   dataController.loadAll = function(ctx, next) {
     var droneData = function(allData) {
       ctx.data = Data.allData;
-      next();
+      testArray = Data.allData;
+      // next();
     };
 
+    var bill = Data.allData.length;
+    console.log('mylenght is',bill);
+
     if (Data.allData.length) {
+      console.log('what up punk');
       ctx.data = Data.allData;
       next();
     } else {
