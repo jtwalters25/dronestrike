@@ -4,6 +4,7 @@
   const mapView = {};
 
   mapView.makeMap = function() {
+    console.log('in makemap');
     var stylesArray = [
       {
         featureType: 'all',
@@ -196,7 +197,13 @@
       fillOpacity: 0.35
     });
     somaliaShape.setMap(map);
- }
+
+    somaliaShape.addListener('click', function() {
+      window.location.href='/somalia';
+    });
+
+  }
+
 // array.forEach(val => {
 //   var lat = parseFloat(val.lat);
 //   var lng = parseFloat(val.lon);
