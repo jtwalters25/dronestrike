@@ -30,7 +30,7 @@ page('/',
 //   dataController.index);
 //
 
-page('/map', mapController.);
+page('/map', mapController);
 page('/stats', chartView.makeChart);
 
 
