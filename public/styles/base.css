@@ -21,7 +21,7 @@ header{
 }
 
 p{
-  color:rgb(92, 94, 94);
+  color:rgb(230, 241, 241);
 }
 h1{
   font-family: 'Orbitron', sans-serif;
@@ -45,13 +45,12 @@ h2{
   margin: 35px;
   margin-bottom: 10px;
 }
+footer{
+  text-align: center;
+}
 
 img{
   max-width: 100%;
-}
-
-#strikeMap{
-  display: flex;
 }
 
  /* Makes the sample page fill the window. */
@@ -59,4 +58,14 @@ img{
   height: 100%;
   width: 100%;
   text-align:
+ }
+
+ #map{
+   height: 70%;
+   width: 80%;
+   margin-left: 10%;
+   border-style: solid ;
+   border-width: 5px;
+   margin-top:18px;
+   margin-bottom:18px;
  }
