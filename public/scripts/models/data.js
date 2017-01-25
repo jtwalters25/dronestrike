@@ -79,14 +79,15 @@
       });
     };
 
-    Data.fetchAll = function(callback) {
+    Data.fetchAll = function(ctx, next) {
       webDB.execute(
         'SELECT * FROM strikes ORDER BY number DESC',
         function(rows) {
           if (rows.length) {
             console.log('rows',rows);
             Data.loadAll(rows);
-            callback();
+            ctx.data = Data.allData;
+            next();
           } else {
             $.ajax({
               url: 'http://api.dronestre.am/data',
@@ -102,7 +103,8 @@
                 'SELECT * FROM strikes ORDER BY date DESC',
                 function(rows) {
                   Data.loadAll(rows);
-                  callback();
+                  ctx.data = Data.allData;
+                  next();
                 });
              });
           }

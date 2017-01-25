@@ -21,16 +21,15 @@
   //   Data.findWhere('id', ctx.params.id, droneData);
   // };
   //
-  // dataController.loadByAuthor = function(ctx, next) {
-  //   let authorData = function(dataByAuthor) {
-  //     ctx.data = dataByAuthor;
-  //     next();
-  //   };
-  //
-  //   Data.findWhere(
-  //     'author', ctx.params.authorName.replace('+', ' '), authorData
-  //   );
-  // };
+  dataController.loadByCountry = function(ctx, next) {
+    let countryData = function(dataByCountry) {
+      ctx.data = dataByCountry;
+      next();
+    };
+    Data.findWhere(
+      'country', ctx.params.countryName.replace('+', ' '), countryData
+    );
+  };
   //
   // dataController.loadByCategory = function(ctx, next) {
   //   var categoryData = function(dataInCategory) {
@@ -42,16 +41,10 @@
   // };
 
   dataController.loadAll = function(ctx, next) {
-    var droneData = function(allData) {
-      ctx.data = Data.allData;
-      next();
-    };
-    console.log('ctx', ctx.data);
     if (Data.allData.length) {
+      console.log('in if');
       ctx.data = Data.allData;
       next();
-    } else {
-      Data.fetchAll(droneData);
     }
   };
 

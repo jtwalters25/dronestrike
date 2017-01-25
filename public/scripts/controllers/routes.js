@@ -1,8 +1,17 @@
 'use strict';
 
 page('/',
+  Data.fetchAll,
   dataController.loadAll,
   dataController.index);
+
+// page('/map', blah.blah, blah.blah);
+//
+// page('/pakistan', blah.blah, blah.blah);
+//
+// page('/somalia', blah.blah, blah.blah);
+//
+// page('/yemen', blah.blah, blah.blah);
 
 // page('/about', aboutController.index);
 // page('/admin', adminController.index);
@@ -13,10 +22,10 @@ page('/',
 
 // Redirect home if the default filter option is selected:
 // page('/category', '/');
-// page('/author', '/');
+// page('/country', '/');
 //
-// page('/author/:authorName',
-//   dataController.loadByAuthor,
+// page('/country/:countryName',
+//   dataController.loadByCountry,
 //   dataController.index);
 //
 // page('/category/:categoryName',

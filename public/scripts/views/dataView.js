@@ -16,7 +16,7 @@
   //     .map(function(country) {
   //       return template({val: country});
   //     });
-  //   $('#author-filter').append(options);
+  //   $('#country-filter').append(options);
   //
   //   Data.allCategories(function(rows) {
   //     $('#category-filter').append(
