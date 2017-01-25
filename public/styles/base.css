@@ -17,8 +17,9 @@ header{
   display: block;
   text-align: center;
   height: 4em;
-  width: auto;
+  width: 100%;
 }
+
 
 p{
   color:rgb(230, 241, 241);
