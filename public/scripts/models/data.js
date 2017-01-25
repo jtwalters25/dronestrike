@@ -36,33 +36,33 @@
   //     callback
   //   );
   // };
-
   Data.prototype.insertRecord = function() {
-    $.post('/strikes/insert',
-      `{number: ${1}, country: ${2}, date: ${3}, narrative: ${4}, town: ${5}, location: ${6}, deaths: ${7}, deaths_min: ${8}, deaths_max: ${9}, civilians: ${10}, injuries: ${11}, children: ${12}, tweet_id: ${13}, bureau_id: ${14}, date: ${15}, category: ${16}number: ${17}, bij_summary_short: ${18}, bij_link: ${19}, target: ${20},lat: ${21}, lon: ${22}, names: ${23})`,
-      [
-        this.number,
-        this.country,
-        this.date,
-        this.narrative,
-        this.town,
-        this.location,
-        this.deaths,
-        this.deaths_min,
-        this.deaths_max,
-        this.civilians,
-        this.injuries,
-        this.children,
-        this.tweet_id,
-        this.bureau_id,
-        this.bij_summary_short,
-        this.bij_link,
-        this.target,
-        this.lat,
-        this.lon,
-        this.names
-      ])
-  }
+    $.post('/strikes/insert', {number: this.number, country: this.country, date: this.date, narrative: this.narrative, town: this.town, location: this.location, deaths: this.deaths, deaths_min: this.deaths_min, deaths_max: this.deaths_max, civilians: this.civilians, injuries: this.injuries, children: this.location, tweet_id: this.tweet_id, bureau_id: this.bureau_id, bij_summary_short: this.bij_summary_short, bij_link: this.bij_link, target: this.target, lat: this.lat, lon: this.lon, names: this.names})
+    .then(console.log)
+  };
+
+        // this.number,
+        // this.country,
+        // this.date,
+        // this.narrative,
+        // this.town,
+        // this.location,
+        // this.deaths,
+        // this.deaths_min,
+        // this.deaths_max,
+        // this.civilians,
+        // this.injuries,
+        // this.children,
+        // this.tweet_id,
+        // this.bureau_id,
+        // this.bij_summary_short,
+        // this.bij_link,
+        // this.target,
+        // this.lat,
+        // this.lon,
+        // this.names
+      // ])
+  // }
 
     Data.loadAll = function(rows) {
       Data.allData = rows.map(function(ele) {
@@ -71,10 +71,11 @@
     };
 
     Data.fetchAll = function(ctx, next) {
+      console.log('in data.fetchAll');
       $.get('/strikes/all')
         .then(function(rows) {
           if (rows.length) {
-            console.log('rows in datafetchall',rows);
+            console.log('rows in datafetchall if',rows);
             Data.loadAll(rows);
             // ctx.data = Data.allData;
             next();
@@ -85,10 +86,11 @@
               dataType: 'jsonp'
             })
              .then(rawData => {
+               console.log('rawData after GET', rawData.strike);
                rawData.strike.forEach(function(item) {
-                 console.log('rawData', rawData.strike);
                  var strike = new Data(item);
-                 strike.insertRecord();
+                 console.log('strike', strike);
+                 strike.insertRecord(strike);
                });
                Data.fetchAll();
              });
