@@ -1,7 +1,7 @@
 'use strict';
 var mainView = {};
 mainView.handleMainNav = function () {
-  $('.tabContent, articles').hide();
+  $('.tabContent, myChart, articles').hide();
   $('#aboutUs').show();
 
   $('.main-nav').on('click', '.tab',function(e){
