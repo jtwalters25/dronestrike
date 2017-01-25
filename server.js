@@ -11,16 +11,29 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('./public'));
 
-app.get('/new.html', function(request, response){
- response.sendFile('new.html', {root: './public'});
+app.get('/map.html', function(request, response){
+  response.sendFile('index.html', {root: './public'});
 })
+
+app.get('/about.html', function(request, response){
+  response.sendFile('index.html', {root: './public'});
+})
+
+app.get('/stat.html', function(request, response){
+  response.sendFile('index.html', {root: './public'});
+})
+
 app.get('/index.html', function(request, response){
- response.sendFile('index.html', {root: './public'});
+  response.sendFile('index.html', {root: './public'});
 })
+
+
+
+
 app.get('*', function(request, response){
- console.log('New request', request.url);
- response.sendFile('404.html', {root: './public'});
+  console.log('New request', request.url);
+  response.sendFile('404.html', {root: './public'});
 })
 app.listen(PORT, function(){
- console.log(`server is up and running. and can be accessed at localhost:${PORT}`);
+  console.log(`server is up and running. and can be accessed at localhost:${PORT}`);
 })
