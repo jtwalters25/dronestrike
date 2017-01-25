@@ -1,12 +1,13 @@
 'use strict';
 
 (function(mod) {
-  const aboutController = {};
-  aboutController.index = function() {
+  const homeController = {};
+  homeController.index = function(ctx, next) {
     $('html').css({'height':'100%', 'margin':'auto', 'padding':'inherit'});
     $('section').fadeOut();
-    $('#aboutUs').fadeIn();
+    $('#home').fadeIn();
+    next();
   };
 
-  mod.aboutController = aboutController;
+  mod.homeController = homeController;
 })(window);
