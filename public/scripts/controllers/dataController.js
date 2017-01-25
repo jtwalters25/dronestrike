@@ -3,7 +3,7 @@
 (function(mod) {
   const dataController = {};
 
-  Data.createTable();
+  // Data.createTable();
 
   dataController.index = function(ctx, next) {
     if(ctx.data.length) {

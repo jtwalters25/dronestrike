@@ -35,14 +35,7 @@ app.get('/', function(request, response){
   response.sendFile('index.html', {root: './public'});
 })
 
-
-app.get('*', function(request, response){
-  console.log('New request', request.url);
-  response.sendFile('404.html', {root: './public'});
-})
-
-// NOTE: Routes for making API calls to enact CRUD Operations on our database
-app.get('/articles/all', (request, response) => {
+app.get('/strikes/all', (request, response) => {
   let client = new pg.Client(conString);
 
   client.connect(err => {
@@ -57,6 +50,11 @@ app.get('/articles/all', (request, response) => {
     );
   })
 });
+
+app.get('*', function(request, response){
+  console.log('New request', request.url);
+  response.sendFile('404.html', {root: './public'});
+})
 
 
 
