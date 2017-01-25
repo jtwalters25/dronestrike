@@ -5,7 +5,7 @@ var militantArray =[2,6,9];
 
 
 function makeChart() {
-  var ctx = document.getElementById("myChart").getContext("2d");
+  var ctx = document.getElementById('myChart').getContext('2d');
   var myChart = new Chart(ctx, {
     type: 'bar',
     data: {
@@ -13,15 +13,15 @@ function makeChart() {
       datasets: [{
         label: 'Civilians',
         data: [2,3,4,5,6],
-        backgroundColor: 'rgba(11, 54, 124, 0.6)'
+        backgroundColor: 'rgba(11, 16, 124, 1)'
       }, {
         label: 'Children',
         data: [3,5,6,7,8],
-        backgroundColor: 'rgba(29, 147, 13, 0.6)'
+        backgroundColor: 'rgba(208, 2, 2, 1)'
       }, {
         label: 'Militants',
         data: [3,4,5,6,7],
-        backgroundColor: 'rgba(240, 147, 13, 0.6)'
+        backgroundColor: 'rgba(242, 255, 0, 0.89)'
       }]
     }
   });

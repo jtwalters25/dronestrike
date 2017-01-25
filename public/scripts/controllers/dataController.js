@@ -38,15 +38,21 @@
   //   };
   //
   //   Data.findWhere('category', ctx.params.categoryName, categoryData);
-  // };
+  // }
 
   dataController.loadAll = function(ctx, next) {
     if (Data.allData.length) {
-      console.log('in if');
+    var droneData = function(allData) {
+      ctx.data = Data.allData;
+    };
+
+    if (Data.allData.length) {
+      console.log('what up punk');
       ctx.data = Data.allData;
       next();
     }
-  };
+    }
+  }
 
   mod.dataController = dataController;
 })(window);
