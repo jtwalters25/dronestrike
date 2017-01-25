@@ -15,6 +15,10 @@ app.get('/map', function(request, response){
   response.sendFile('index.html', {root: './public'});
 })
 
+app.get('/somalia', function(request, response){
+  response.sendFile('index.html', {root: './public'});
+})
+
 app.get('/about', function(request, response){
   response.sendFile('index.html', {root: './public'});
 })

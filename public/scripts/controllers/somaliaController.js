@@ -1,15 +1,15 @@
 'use strict';
 
 (function(mod) {
-  const mapController = {};
-  mapController.index = function() {
+  const somaliaController = {};
+  somaliaController.index = function() {
     $('#map').css('height', '100%');
     $('html').css({'height':'100%', 'margin':'0', 'padding':'0'});
     $('body').css({'height':'100%', 'margin':'0', 'padding':'0'});
     $('section').fadeOut();
-    mapView.makeMap();
+    somaliaView.makeMap();
     $('#map').fadeIn();
   };
 
-  mod.mapController = mapController;
+  mod.somaliaController = somaliaController;
 })(window);

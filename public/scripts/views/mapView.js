@@ -196,7 +196,13 @@
       fillOpacity: 0.35
     });
     somaliaShape.setMap(map);
- }
+
+    somaliaShape.addListener('click', function() {
+      window.location.href='/somalia';
+    });
+
+  }
+
 // array.forEach(val => {
 //   var lat = parseFloat(val.lat);
 //   var lng = parseFloat(val.lon);
