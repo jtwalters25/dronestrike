@@ -37,8 +37,9 @@
   //   );
   // };
   Data.prototype.insertRecord = function() {
-    $.post('/strikes/insert', {number: this.number, country: this.country, date: this.date, narrative: this.narrative, town: this.town, location: this.location, deaths: this.deaths, deaths_min: this.deaths_min, deaths_max: this.deaths_max, civilians: this.civilians, injuries: this.injuries, children: this.location, tweet_id: this.tweet_id, bureau_id: this.bureau_id, bij_summary_short: this.bij_summary_short, bij_link: this.bij_link, target: this.target, lat: this.lat, lon: this.lon, names: this.names})
-    .then(console.log)
+    console.log('this', this);
+    $.post('/strikes/insert', {number: this.number, country: this.country, date: this.date, narrative: this.narrative, town: this.town, location: this.location, deaths: this.deaths, deaths_min: this.deaths_min, deaths_max: this.deaths_max, civilians: this.civilians, injuries: this.injuries, children: this.children, tweet_id: this.tweet_id, bureau_id: this.bureau_id, bij_summary_short: this.bij_summary_short, bij_link: this.bij_link, target: this.target, lat: this.lat, lon: this.lon, names: this.names})
+    .then(console.log('THEN!!!!!!!'))
   };
 
         // this.number,
@@ -90,7 +91,7 @@
                rawData.strike.forEach(function(item) {
                  var strike = new Data(item);
                  console.log('strike', strike);
-                 strike.insertRecord(strike);
+                 strike.insertRecord();
                });
                Data.fetchAll();
              });

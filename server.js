@@ -51,34 +51,35 @@ app.get('/strikes/all', (request, response) => {
 });
 
 app.post('/strikes/insert', (request, response) => {
-  let client = new pg.Client(conString);
-  console.log('in strikes insert');
-  client.query(
-    'INSERT INTO strikes (number, country, date, narrative, town, location, deaths, deaths_min, deaths_max, civilians, injuries, children, tweet_id, bureau_id, bij_summary_short, bij_link, target, lat, lon, names)  VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20) ON CONFLICT DO NOTHING;',
-    [ request.body.number,
-      request.body.country,
-      request.body.date,
-      request.body.narrative,
-      request.body.town,
-      request.body.location,
-      request.body.deaths,
-      request.body.deaths_min,
-      request.body.deaths_max,
-      request.body.civilians,
-      request.body.injuries,
-      request.body.children,
-      request.body.tweet_id,
-      request.body.bureau_id,
-      request.body.bij_summary_short,
-      request.body.bij_link,
-      request.body.target,
-      request.body.lat,
-      request.body.lon,
-      request.body.names],
-    err => {
-      if (err) console.error(err);
-    }
-  );
+  var client = new pg.Client(conString);
+  client.connect(err => {
+    if (err) console.error(err);
+    client.query(
+      `INSERT INTO strikes (number, country, date, narrative, town, location, deaths, deaths_min, deaths_max, civilians, injuries, children, tweet_id, bureau_id, bij_summary_short, bij_link, target, lat, lon, names) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20);`,
+      [ request.body.number,
+        request.body.country,
+        request.body.date,
+        request.body.narrative,
+        request.body.town,
+        request.body.location,
+        request.body.deaths,
+        request.body.deaths_min,
+        request.body.deaths_max,
+        request.body.civilians,
+        request.body.injuries,
+        request.body.children,
+        request.body.tweet_id,
+        request.body.bureau_id,
+        request.body.bij_summary_short,
+        request.body.bij_link,
+        request.body.target,
+        request.body.lat,
+        request.body.lon,
+        request.body.names],
+      err => {
+        if (err) console.error(err);
+      });
+  })
 })
 
 app.get('*', function(request, response){
