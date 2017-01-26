@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="styles/base.css">
     <link rel="stylesheet" href="styles/layout.css">
     <link rel="stylesheet" href="styles/module.css">
-    <link rel="stylesheet" href="styles/railscasts.css">
     <link href="https://fonts.googleapis.com/css?family=Orbitron|Oswald" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.js"></script>
     <title>DroneStrike</title>
@@ -29,18 +28,19 @@
         </ul>
       </nav>
       <section class="tabContent" id="home">
-        <h2 style="margin-bottom: 20px;">On this app</h2>
         <br>
         <ol>
-          <li><p style="text-indent: 20px;">The data represented in the graphs and then visibly shown on the map is drone strikes by the US military ranging from 2002 up until present day.
+          <h2>WHAT</h2>
+          <li><p style="text-indent: 20px;">This is an app designed to visually represent data collected about drone strikes carried out by the U.S. military.
           </p></li><br>
-          <li><p style="text-indent: 20px;"> With the data we have, the origin of the strikes is in the middle east; specific countries being Yemen, Pakistan, and Somalia.
-
+          <h2>WHERE</h2>
+          <li><p style="text-indent: 20px;"> The data we have show strikes that have occured in three countires in the middle east; Pakistan, Yemen and Somalia.
           </p></li><br>
-          <li><p style="text-indent: 20px;">The map is responsive and you are able to click on a country and see more in depth of the specific strikes. The markers show each US drone strikes with details of dates, fatalities, and even names.
-
+          <h2>HOW</h2>
+          <li><p style="text-indent: 20px;">The map is responsive and you are able to click on a country and see more in depth of the specific strikes. The markers show each US drone strikes with details of dates, fatalities using an API from <a href="http://dronestre.am/">dronestre.am.com.</a>
           </p></li><br>
-          <li><p style="text-indent: 20px;">Understandably enough, it is not possible to tell exactly who is in the strike zone outside of the targeted individuals. Unfortunately, many young children and innocent people are victims of these attacks.
+          <h2>WHO</h2>
+          <li><p style="text-indent: 20px;">It is not possible to tell exactly who is in the strike zone outside of the targeted individuals. Unfortunately, many young children and innocent people are victims of these attacks.
           </p></li><br>
 
         </ol>
@@ -48,18 +48,23 @@
       </section>
       <section class="tabContent" id="strikeStats">
         <div>
-          <h2>Stats</h2>
+          <h3>Stats</h3>
             <canvas id="myChart"></canvas>
         </div>
       </section>
       <section class="tabContent" id="aboutUs">
-        <ul>
-          <li style="text-align">Gary <img src="styles/imgs/gary.png" height="400" width="550"><p>Gary grew up in Minnesota then ran off to Alaska when he was 18. After many years of living in cold lands he came to Seattle, home of mild weather. He enjoys hiking, biking and the occasional board game. He enjoys building things and is starting to dream in code. <a href="https://github.com/GLSea1979"> Gary's Github</a></p>
+        <ul class="listofus">
+          <li><h3>Gary</h3><img src="styles/imgs/gary.png" height="400" width="550"><p>Gary grew up in Minnesota then ran off to Alaska when he was 18. After many years of living in cold lands he came to Seattle, home of mild weather. He enjoys hiking, biking and the occasional board game. He enjoys building things and is starting to dream in code.</p><a href="https://github.com/GLSea1979"><img src="styles/imgs/GitHub-Mark-Light-120px-plus.png" alt="gh icon" style="width:140px;height:140px;">
+      </a>
           </li><br>
-          <li>Cayla<p>Cayla was born and raised in the Seattle area. She enjoys spending time with her family and friends, playing soccer, and working out. She is currently studying to be a developer and is eager to be apart of the tech industry. <a href="https://github.com/caylazabel"> Cayla's Github</a>
-          </p></li><br>
-          <li><h3>Yana</h3><img src="styles/imgs/yana.jpg" height="400" width="550"><p> Yana was born in Bulgaria and moved to Massachusetts when she was 11. Shortly after she moved around the US a bit and lived in Minnesota, North Carolina, and California before moving to Washington. Yana enjoys hiking and the outdoors. Her first programming was done on a commodore 128.<a href="https://github.com/radenska">Yana's Github</a></p> </li>
-          <li><h3>Jeremiah</h3><img src="styles/imgs/jeremiah2.jpg" height="400" width="550"><p>Jeremiah is a native of Atlanta Georiga and moved to Seattle during his teenage years. He is passionate about sports, technology, and web development.<a href="https://github.com/jtwalters25"> Jeremiah's Github  </a></p></li>
+          <li><h3>Cayla</h3> <img src="styles/imgs/caylapic.jpg" height="400" width="550" border="yellow" border-width="4px";><p>Cayla was born and raised in the Seattle area. She enjoys spending time with her family and friends, playing soccer, and working out. She is currently studying to be a developer and is eager to be apart of the tech industry. </p> <a href="https://github.com/caylazabel"><img src="styles/imgs/GitHub-Mark-Light-120px-plus.png" alt="gh icon" style="width:140px;height:140px;">
+      </a>
+          </li><br>
+          <li><h3>Yana</h3><img src="styles/imgs/yana.jpg" height="400" width="550"><p> Yana was born in Bulgaria and moved to Massachusetts when she was 11. Shortly after she moved around the US a bit and lived in Minnesota, North Carolina, and California before moving to Washington. Yana enjoys hiking and the outdoors. Her first programming was done on a commodore 128.</p><a href="https://github.com/radenska"><img src="styles/imgs/GitHub-Mark-Light-120px-plus.png" alt="gh icon" style="width:140px;height:140px;">
+      </a></li><br>
+
+          <li><h3>Jeremiah</h3><img src="styles/imgs/jeremiah2.jpg" height="400" width="550"><p>Jeremiah is a native of Atlanta Georiga and moved to Seattle during his teenage years. He is passionate about sports, technology, and web development.</p><a href="https://github.com/jtwalters25/301n5-portfolio"><img src="styles/imgs/GitHub-Mark-Light-120px-plus.png" alt="gh icon" style="width:140px;height:140px;">
+      </a></li>
         </ul>
       </section>
       <section id="map">
