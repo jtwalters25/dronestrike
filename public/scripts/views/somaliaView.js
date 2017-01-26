@@ -5,7 +5,7 @@
 
   somaliaView.makeMap = function(array) {
     var stylesArray =
-      [
+     [
         {
           'elementType': 'geometry',
           'stylers': [
@@ -217,6 +217,7 @@
     //   console.log('somalia',rows);
       // Data.loadAll(rows);
     array.forEach(val => {
+      console.log('in for each of somalia');
       var lat = parseFloat(val.lat);
       var lng = parseFloat(val.lon);
       var marker = new google.maps.Marker({
