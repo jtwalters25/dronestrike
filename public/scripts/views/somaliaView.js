@@ -3,7 +3,7 @@
 (function(module) {
   const somaliaView = {};
 
-  somaliaView.makeMap = function() {
+  somaliaView.makeMap = function(array) {
     var stylesArray =
       [
         {
@@ -216,7 +216,7 @@
     // .then(function(rows) {
     //   console.log('somalia',rows);
       // Data.loadAll(rows);
-    Data.allData.forEach(val => {
+    array.forEach(val => {
       var lat = parseFloat(val.lat);
       var lng = parseFloat(val.lon);
       var marker = new google.maps.Marker({
