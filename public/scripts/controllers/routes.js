@@ -12,5 +12,4 @@ page('/about', aboutController.index);
 page('/somalia',
   dataController.loadByCountry,
   countryController.index);
-
 page();

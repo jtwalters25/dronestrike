@@ -77,7 +77,10 @@ app.post('/strikes/insert', (request, response) => {
         request.body.lon,
         request.body.names],
       err => {
-        if (err) console.error(err);
+        if (err) {
+          console.error(err);
+          response.send(err);
+        }
       });
   })
 })
