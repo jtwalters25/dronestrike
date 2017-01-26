@@ -205,7 +205,7 @@
       }
     }
 
-    var map = new google.maps.Map(document.getElementById('map'), mapOptions);
+    var map = new google.maps.Map(document.getElementById('map3'), mapOptions);
 
     google.maps.event.addDomListener(window, 'resize', function() {
       var center = {lat: 6.480853, lng: 45.197783};
