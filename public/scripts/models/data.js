@@ -53,22 +53,22 @@
         });
   };
 
-//   Data.findWhere = function(field, value, callback) {
-//     console.log(field, 'field', value, 'value');
-//     console.log('data all data in findwhere', Data.allData);
-//     console.log('findwhere', Data.allData.filter(strike => {strike.field.toUpperCase() === value.toUpperCase()}));
-//   }
-//
-//   Data.findWhere = function(field, value, callback) {
-//     $.get('/strikes/all')
-// [
-//     {
-//       sql: 'SELECT * FROM strikes WHERE ' + field + ' = ?;',
-//       data: [value]
-//     }
-//             ],
-//             callback()
-//   };
+  Data.findWhere = function(field, value, callback) {
+    console.log(field, 'field', value, 'value');
+    console.log('data all data in findwhere', Data.allData);
+    console.log('findwhere', Data.allData.filter(strike => {strike.field.toUpperCase() === value.toUpperCase()}));
+  }
+
+  Data.findWhere = function(field, value, callback) {
+    $.get('/strikes/all')
+[
+    {
+      sql: 'SELECT * FROM strikes WHERE ' + field + ' = ?;',
+      data: [value]
+    }
+            ],
+            callback()
+  };
 
   Data.allCountries = function() {
     return Data.allData.map(function(strike) {

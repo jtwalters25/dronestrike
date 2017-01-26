@@ -194,7 +194,7 @@
 
 
     var mapOptions = {
-      zoom: 4,
+      zoom: 5,
       styles: stylesArray,
       center: new google.maps.LatLng(6.480853, 45.197783),
       mapTypeId: google.maps.MapTypeId.STREET,
@@ -204,7 +204,7 @@
       }
     }
 
-    var map = new google.maps.Map(document.getElementById('map'), mapOptions);
+    var map = new google.maps.Map(document.getElementById('map1'), mapOptions);
 
     google.maps.event.addDomListener(window, 'resize', function() {
       var center = {lat: 6.480853, lng: 45.197783};
@@ -234,6 +234,7 @@
       // })
     });
   }
+}
 
 
 
