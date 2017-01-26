@@ -7,29 +7,22 @@
 
   dataController.index = function(ctx, next) {
     if(ctx.data.length) {
-      console.log('in datacontrollerindex if');
       dataView.index(ctx.data);
     } else {
-      console.log('in datacontrollerindex if');
       page('/');
     }
   };
 
-  // dataController.loadById = function(ctx, next) {
-  //   let droneData = function(data) {
-  //     ctx.data = data;
-  //     next();
-  //   };
-  //   Data.findWhere('id', ctx.params.id, droneData);
-  // };
-  //
   dataController.loadByCountry = function(ctx, next) {
     console.log('in loadbycountry');
     var countryData = function(dataByCountry) {
       ctx.data = dataByCountry;
+      console.log('ctx.data', ctx.data);
       next();
     };
-    Data.findWhere('country', ctx.params.country, countryData);
+    let temp = ctx.pathname;
+    ctx.pathname = temp.slice(1,(temp.length));
+    // Data.findWhere('country', ctx.pathname, countryData);
   };
   //
   // dataController.loadByCategory = function(ctx, next) {
@@ -42,9 +35,7 @@
   // }
 
   dataController.loadAll = function(ctx, next) {
-    console.log('dataalldata length', Data.allData.length);
     if (Data.allData.length) {
-      console.log('in if of dc.loadall, alldata', Data.allData.length);
       ctx.data = Data.allData;
     }
     next();
