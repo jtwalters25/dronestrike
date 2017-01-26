@@ -3,8 +3,8 @@ body {
   background-color: rgb(0, 0, 0);
   color: rgb(162, 8, 8);
   text-shadow: .5px .5px white;
-  font-family:'Oswald', sans-serif;
-  font-size: 2em;
+  font-family: sans-serif;
+  font-size: 14px;
   width: 100%;
   margin: auto;
   padding: inherit;
@@ -20,13 +20,32 @@ header{
   width: 100%;
 }
 
+.listofus li {
+  padding: 50px;
+  text-align: center;
+  border-style: solid ;
+  border-width: 5px;
+}
+ul li p::first-letter {
+    font-size: 400%;
+    color: rgb(166, 7, 7);
+}
+
+ol{
+  text-align: center;
+  padding: 18px;
+}
+h3{
+  font-size: 3em;
+  text-align: center;
+}
 
 p{
   color:rgb(230, 241, 241);
 }
 h1{
   font-family: 'Orbitron', sans-serif;
-  padding:30px;
+  padding:10px;
   font-size: 4em;
 }
 
@@ -53,6 +72,7 @@ footer{
 img{
   max-width: 100%;
 }
+
 
  /* Makes the sample page fill the window. */
 #myChart{
