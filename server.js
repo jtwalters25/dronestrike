@@ -38,11 +38,26 @@ app.get('/', function(request, response){
 })
 
 app.get('/strikes/all', (request, response) => {
-  let client = new pg.Client(conString);
+  console.log('in strikes all'); let client = new pg.Client(conString);
   client.connect(err => {
     if (err) console.error(err);
     client.query(
       `SELECT * FROM strikes;`,
+      (err, result) => {
+        if (err) console.error(err);
+        response.send(result);
+        client.end();
+      }
+    );
+  })
+});
+
+app.get('/strikes/somalia', (request, response) => {
+  console.log('somalia strikes'); let client = new pg.Client(conString);
+  client.connect(err => {
+    if (err) console.error(err);
+    client.query(
+      `SELECT * FROM strikes WHERE country = "Somalia";`,
       (err, result) => {
         if (err) console.error(err);
         response.send(result);
@@ -81,15 +96,16 @@ app.post('/strikes/insert', (request, response) => {
         request.body.lat,
         request.body.lon,
         request.body.names],
-      err => {
+      (err, result) => {
         if (err) {
           console.error(err);
           response.send(err);
         }
+
+        response.send(result);
+        console.log('in strikes insert at end of query');
+        client.end();
       });
-    response.sendStatus(200);
-    console.log('in strikes insert at end of query');
-    client.end();
   })
   console.log('in strikes insert before final closing brackety thingies');
 })

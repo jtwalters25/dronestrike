@@ -22,7 +22,8 @@
     };
     let temp = ctx.pathname;
     ctx.pathname = temp.slice(1,(temp.length));
-    // Data.findWhere('country', ctx.pathname, countryData);
+    console.log('name', ctx.pathname);
+    Data.findWhere('country', ctx.pathname, countryData);
   };
   //
   // dataController.loadByCategory = function(ctx, next) {
