@@ -1,19 +1,20 @@
-
 'use strict';
 
 (function(module) {
-  const chartView = {};
+    const pieChartView = {};
 
-  chartView.makeChart = function() {
+  pieChartView.makeChart = function() {
+
+
 
     var civilianArray =[2,4,13];
     var childrenArray =[1,3,5];
     var militantArray =[2,6,9];
-    var ctx = document.getElementById('myChart').getContext('2d');
+    var ctx = document.getElementById('pieChart').getContext('2d');
     var myChart = new Chart(ctx, {
-      type: 'bar',
+      type: 'pie',
       data: {
-        labels: ['bush', 'obama', 'trump'],
+        // labels: ['bush', 'obama', 'trump'],
         datasets: [{
           label: 'Civilians',
           data: [2,3,4,5,6],
@@ -31,6 +32,6 @@
     });
   }
 
-  module.chartView = chartView;
+  module.pieChartView = pieChartView;
 
 })(window);
