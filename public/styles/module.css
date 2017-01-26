@@ -1,4 +1,6 @@
-
+html {
+  font-size: 14px;
+}
 .icon-menu {
   font-size: 3em;
   display: block;
@@ -27,10 +29,19 @@
   border-bottom: 1px solid #ccc;
 }
 
+@@media only screen and (min-width: 500px) {
+  body{
+    font-size: 16px;
+  }
+}
 
 @media only screen and (min-width: 640px) {
   .icon-menu {
     display: none;
+  }
+
+  body{
+    font-size: 28px;
   }
 
   .main-nav {
