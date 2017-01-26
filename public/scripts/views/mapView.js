@@ -281,6 +281,10 @@
     });
     yemenShape.setMap(map);
 
+    yemenShape.addListener('click', function() {
+      window.location.href='/yemen';
+    });
+
 
     var pakistanCoords = [
       {lat: 37.0376, lng: 74.5532},
@@ -327,6 +331,10 @@
       fillOpacity: 0.35
     });
     pakistanShape.setMap(map);
+
+    pakistanShape.addListener('click', function() {
+      window.location.href='/pakistan';
+    });
 
     var somaliaCoords = [
       {lat: 11.8674, lng: 51.0644},
