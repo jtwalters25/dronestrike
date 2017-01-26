@@ -38,7 +38,6 @@
   // };
 
   dataView.index = function(data) {
-    console.log('in dataview.index, data', data);
     $('#data').show()
     $('#nav').hide();
 

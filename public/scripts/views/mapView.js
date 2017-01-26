@@ -4,7 +4,6 @@
   const mapView = {};
 
   mapView.makeMap = function() {
-    console.log('in makemap');
     var stylesArray =
       [
         {

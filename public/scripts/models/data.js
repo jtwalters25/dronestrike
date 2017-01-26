@@ -25,12 +25,15 @@
       // console.log('in data.fetchAll');
     $.get('/strikes/all')
         .then(function(obj) {
-          console.log('size of db', obj.rowCount);
           if (obj.rowCount) {
-            console.log('rows in datafetchall if',obj);
+            console.log('in fetch all');
+            localStorage.strikes = obj.rows;
             Data.loadAll(obj.rows);
-            // ctx.data = Data.allData;
-            next();
+            let somalia = Data.allData.filter( val => {return val.country ==='Somalia'});
+            mapView.makeMap();
+            somaliaView.makeMap(somalia);
+            let yemen = Data.allData.filter( val => {return val.country ==='Yemen'});
+            let pakistan = Data.allData.filter( val => {val.country.indexOf('P') === 0});
           } else {
             $.ajax({
               url: 'http://api.dronestre.am/data',
@@ -48,22 +51,22 @@
         });
   };
 
-  Data.findWhere = function(field, value, callback) {
-    console.log(field, 'field', value, 'value');
-    console.log(Data.allData);
-    console.log('findwhere', Data.allData.filter(strike => {strike.field.toUpperCase() === value.toUpperCase()}));
-  }
-
-  Data.findWhere = function(field, value, callback) {
-    $.get('/strikes/all')
-[
-    {
-      sql: 'SELECT * FROM strikes WHERE ' + field + ' = ?;',
-      data: [value]
-    }
-            ],
-            callback()
-  };
+//   Data.findWhere = function(field, value, callback) {
+//     console.log(field, 'field', value, 'value');
+//     console.log('data all data in findwhere', Data.allData);
+//     console.log('findwhere', Data.allData.filter(strike => {strike.field.toUpperCase() === value.toUpperCase()}));
+//   }
+//
+//   Data.findWhere = function(field, value, callback) {
+//     $.get('/strikes/all')
+// [
+//     {
+//       sql: 'SELECT * FROM strikes WHERE ' + field + ' = ?;',
+//       data: [value]
+//     }
+//             ],
+//             callback()
+//   };
 
   Data.allCountries = function() {
     return Data.allData.map(function(strike) {
