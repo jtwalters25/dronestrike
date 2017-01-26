@@ -29,7 +29,10 @@
           if (obj.rowCount) {
             console.log('rows in datafetchall if',obj);
             Data.loadAll(obj.rows);
-            // ctx.data = Data.allData;
+            console.log('data', Data.allData);
+            let somalia = Data.allData.filter( val => {return val.country ==='Somalia'}); console.log('somali', somalia);
+            let yemen = Data.allData.filter( val => {return val.country ==='Yemen'});console.log('yemen', yemen)
+            let pakistan = Data.allData.filter( val => {val.country.indexOf('P') === 0});console.log('Ps',pakistan)
             next();
           } else {
             $.ajax({
