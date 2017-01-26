@@ -26,14 +26,9 @@
     $.get('/strikes/all')
         .then(function(obj) {
           if (obj.rowCount) {
-            console.log('in fetch all');
+            console.log('in fetch all', obj.rows);
             localStorage.strikes = obj.rows;
             Data.loadAll(obj.rows);
-            let somalia = Data.allData.filter( val => {return val.country ==='Somalia'});
-            mapView.makeMap();
-            somaliaView.makeMap(somalia);
-            let yemen = Data.allData.filter( val => {return val.country ==='Yemen'});
-            let pakistan = Data.allData.filter( val => {val.country.indexOf('P') === 0});
           } else {
             $.ajax({
               url: 'http://api.dronestre.am/data',
@@ -48,25 +43,32 @@
                Data.fetchAll();
              });
           }
+        }).then(function(obj) {
+          var somalia = Data.allData.filter( val => {return val.country ==='Somalia'});
+          console.log('somalia', somalia);
+          mapView.makeMap();
+          somaliaView.makeMap(somalia);
+          let yemen = Data.allData.filter( val => {return val.country ==='Yemen'});
+          let pakistan = Data.allData.filter( val => {val.country.indexOf('P') === 0});
         });
   };
 
-//   Data.findWhere = function(field, value, callback) {
-//     console.log(field, 'field', value, 'value');
-//     console.log('data all data in findwhere', Data.allData);
-//     console.log('findwhere', Data.allData.filter(strike => {strike.field.toUpperCase() === value.toUpperCase()}));
-//   }
-//
-//   Data.findWhere = function(field, value, callback) {
-//     $.get('/strikes/all')
-// [
-//     {
-//       sql: 'SELECT * FROM strikes WHERE ' + field + ' = ?;',
-//       data: [value]
-//     }
-//             ],
-//             callback()
-//   };
+  Data.findWhere = function(field, value, callback) {
+    console.log(field, 'field', value, 'value');
+    console.log('data all data in findwhere', Data.allData);
+    console.log('findwhere', Data.allData.filter(strike => {strike.field.toUpperCase() === value.toUpperCase()}));
+  }
+
+  Data.findWhere = function(field, value, callback) {
+    $.get('/strikes/all')
+[
+    {
+      sql: 'SELECT * FROM strikes WHERE ' + field + ' = ?;',
+      data: [value]
+    }
+            ],
+            callback()
+  };
 
   Data.allCountries = function() {
     return Data.allData.map(function(strike) {

@@ -5,7 +5,7 @@
 
   somaliaView.makeMap = function(array) {
     var stylesArray =
-      [
+     [
         {
           'elementType': 'geometry',
           'stylers': [
@@ -194,7 +194,7 @@
 
 
     var mapOptions = {
-      zoom: 4,
+      zoom: 5,
       styles: stylesArray,
       center: new google.maps.LatLng(6.480853, 45.197783),
       mapTypeId: google.maps.MapTypeId.STREET,
@@ -204,7 +204,7 @@
       }
     }
 
-    var map = new google.maps.Map(document.getElementById('map'), mapOptions);
+    var map = new google.maps.Map(document.getElementById('map1'), mapOptions);
 
     google.maps.event.addDomListener(window, 'resize', function() {
       var center = {lat: 6.480853, lng: 45.197783};
@@ -212,26 +212,29 @@
       map.setCenter(center);
     });
 
-    $.get('/strikes/somalia')
-    .then(function(rows) {
-      console.log('somalia',rows);
-      Data.loadAll(rows);
-      array.forEach(val => {
-        var lat = parseFloat(val.lat);
-        var lng = parseFloat(val.lon);
-        var marker = new google.maps.Marker({
-          position: {lat: lat, lng: lng},
-          map: map,
-        });
-        var infowindow = new google.maps.InfoWindow({
-          content: `town: ${val.town}, location: ${val.location}, deaths: ${val.deaths}, injuries: ${val.injuries}`
-        });
-        marker.addListener('click', function() {
-          infowindow.open(map, marker);
-        });
-      })
+
+    // $.get('/strikes/somalia')
+    // .then(function(rows) {
+    //   console.log('somalia',rows);
+      // Data.loadAll(rows);
+    array.forEach(val => {
+      console.log('in for each of somalia');
+      var lat = parseFloat(val.lat);
+      var lng = parseFloat(val.lon);
+      var marker = new google.maps.Marker({
+        position: {lat: lat, lng: lng},
+        map: map,
+      });
+      var infowindow = new google.maps.InfoWindow({
+        content: `town: ${val.town}, location: ${val.location}, deaths: ${val.deaths}, injuries: ${val.injuries}`
+      });
+      marker.addListener('click', function() {
+        infowindow.open(map, marker);
+      });
+      // })
     });
   }
+}
 
 
 
