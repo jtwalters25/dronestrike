@@ -212,24 +212,24 @@
       map.setCenter(center);
     });
 
-    $.get('/strikes/somalia')
-    .then(function(rows) {
-      console.log('somalia',rows);
-      Data.loadAll(rows);
-      Data.allData.forEach(val => {
-        var lat = parseFloat(val.lat);
-        var lng = parseFloat(val.lon);
-        var marker = new google.maps.Marker({
-          position: {lat: lat, lng: lng},
-          map: map,
-        });
-        var infowindow = new google.maps.InfoWindow({
-          content: `town: ${val.town}, location: ${val.location}, deaths: ${val.deaths}, injuries: ${val.injuries}`
-        });
-        marker.addListener('click', function() {
-          infowindow.open(map, marker);
-        });
-      })
+    // $.get('/strikes/somalia')
+    // .then(function(rows) {
+    //   console.log('somalia',rows);
+      // Data.loadAll(rows);
+    Data.allData.forEach(val => {
+      var lat = parseFloat(val.lat);
+      var lng = parseFloat(val.lon);
+      var marker = new google.maps.Marker({
+        position: {lat: lat, lng: lng},
+        map: map,
+      });
+      var infowindow = new google.maps.InfoWindow({
+        content: `town: ${val.town}, location: ${val.location}, deaths: ${val.deaths}, injuries: ${val.injuries}`
+      });
+      marker.addListener('click', function() {
+        infowindow.open(map, marker);
+      });
+      // })
     });
   }
 
