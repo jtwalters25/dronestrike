@@ -1,9 +1,9 @@
 'use strict';
 
 (function(module) {
-  const somaliaView = {};
+  const pakistanView = {};
 
-  somaliaView.makeMap = function(array) {
+  pakistanView.makeMap = function(array) {
     var stylesArray =
       [
         {
@@ -212,9 +212,9 @@
       map.setCenter(center);
     });
 
-    $.get('/strikes/somalia')
+    $.get('/strikes/pakistan')
     .then(function(rows) {
-      console.log('somalia',rows);
+      console.log('pakistan',rows);
       Data.loadAll(rows);
       array.forEach(val => {
         var lat = parseFloat(val.lat);
@@ -241,5 +241,5 @@
 
 
 
-  module.somaliaView = somaliaView;
+  module.pakistanView = pakistanView;
 })(window);
