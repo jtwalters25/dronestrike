@@ -29,6 +29,7 @@
             console.log('in fetch all', obj.rows);
             localStorage.strikes = obj.rows;
             Data.loadAll(obj.rows);
+            mapView.makeMap();
           } else {
             $.ajax({
               url: 'http://api.dronestre.am/data',
@@ -43,14 +44,15 @@
                Data.fetchAll();
              });
           }
-        }).then(function(obj) {
-          var somalia = Data.allData.filter( val => {return val.country ==='Somalia'});
-          somaliaView.makeMap(somalia);
-          let yemen = Data.allData.filter( val => {return val.country ==='Yemen'});
-          somaliaView.makeMap(yemen);
-          let pakistan = Data.allData.filter( val => {val.country.indexOf('P') === 0});
-          somaliaView.makeMap(pakistan);
-        });
+        })
+        // .then(function(obj) {
+        //   var somalia = Data.allData.filter( val => {return val.country ==='Somalia'});
+        //   somaliaView.makeMap(somalia);
+        //   let yemen = Data.allData.filter( val => {return val.country ==='Yemen'});
+        //   somaliaView.makeMap(yemen);
+        //   let pakistan = Data.allData.filter( val => {val.country.indexOf('P') === 0});
+        //   somaliaView.makeMap(pakistan);
+        // });
   };
 
   module.Data = Data;
