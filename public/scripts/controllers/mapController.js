@@ -8,6 +8,7 @@
     $('section').fadeOut();
     Data.fetchAll();
     $('#map').fadeIn();
+    $('#legend').fadeIn();
   };
 
   mod.mapController = mapController;

@@ -19,7 +19,6 @@
         }
         if (country.country === 'Pakistan') {
           pakistanTotal +=1;
-          console.log(pakistanTotal);
         }
       })
       localStorage.shit = JSON.stringify([yemenTotal, somaliaTotal, pakistanTotal])
