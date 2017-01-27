@@ -3,7 +3,7 @@
 (function(module) {
   const mapView = {};
 
-  mapView.makeMap = function() {
+  mapView.makeMap = function(array) {
     var stylesArray =
       [
         {
