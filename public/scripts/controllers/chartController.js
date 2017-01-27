@@ -6,6 +6,7 @@
     $('html').css({'height':'100%', 'margin':'auto', 'padding':'inherit'});
     $('section').fadeOut();
     pieChartView.makeChart();
+    lineChartView.makeChart();
     $('#strikeStats').fadeIn();
   };
 
