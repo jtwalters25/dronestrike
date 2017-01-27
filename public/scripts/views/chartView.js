@@ -2,7 +2,7 @@
 'use strict';
 
 (function(module) {
-    const chartView = {};
+  const chartView = {};
 
   chartView.makeChart = function() {
 
