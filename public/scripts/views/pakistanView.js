@@ -196,7 +196,7 @@
     var mapOptions = {
       zoom: 4,
       styles: stylesArray,
-      center: new google.maps.LatLng(6.480853, 45.197783),
+      center: new google.maps.LatLng(30.3753, 69.345),
       mapTypeId: google.maps.MapTypeId.STREET,
       zoomControl: true,
       zoomControlOptions: {
@@ -207,33 +207,28 @@
     var map = new google.maps.Map(document.getElementById('map2'), mapOptions);
 
     google.maps.event.addDomListener(window, 'resize', function() {
-      var center = {lat: 6.480853, lng: 45.197783};
+      var center = {lat: 30.3753, lng: 69.345};
       google.maps.event.trigger(map, 'resize');
       map.setCenter(center);
     });
 
-    $.get('/strikes/pakistan')
-    .then(function(rows) {
-      console.log('pakistan',rows);
-      Data.loadAll(rows);
-      array.forEach(val => {
-        var lat = parseFloat(val.lat);
-        var lng = parseFloat(val.lon);
-        var marker = new google.maps.Marker({
-          position: {lat: lat, lng: lng},
-          map: map,
-        });
-        var infowindow = new google.maps.InfoWindow({
-          content: `town: ${val.town}, location: ${val.location}, deaths: ${val.deaths}, injuries: ${val.injuries}`
-        });
-        marker.addListener('click', function() {
-          infowindow.open(map, marker);
-        });
-      })
+
+    array.forEach(val => {
+      var lat = parseFloat(val.lat);
+      var lng = parseFloat(val.lon);
+      var marker = new google.maps.Marker({
+        position: {lat: lat, lng: lng},
+        map: map,
+      });
+      var infowindow = new google.maps.InfoWindow({
+        content: `town: ${val.town}, location: ${val.location}, deaths: ${val.deaths}, injuries: ${val.injuries}`
+      });
+      marker.addListener('click', function() {
+        infowindow.open(map, marker);
+      });
     });
+
   }
-
-
 
 
 

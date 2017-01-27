@@ -197,7 +197,7 @@
     var mapOptions = {
       zoom: 4,
       styles: stylesArray,
-      center: new google.maps.LatLng(6.480853, 45.197783),
+      center: new google.maps.LatLng(15.5527, 48.5164),
       mapTypeId: google.maps.MapTypeId.STREET,
       zoomControl: true,
       zoomControlOptions: {
@@ -208,15 +208,11 @@
     var map = new google.maps.Map(document.getElementById('map3'), mapOptions);
 
     google.maps.event.addDomListener(window, 'resize', function() {
-      var center = {lat: 6.480853, lng: 45.197783};
+      var center = {lat: 15.5527, lng: 48.5164};
       google.maps.event.trigger(map, 'resize');
       map.setCenter(center);
     });
 
-    $.get('/strikes/yemen')
-    .then(function(rows) {
-      console.log('yemen',rows);
-      Data.loadAll(rows);
       array.forEach(val => {
         var lat = parseFloat(val.lat);
         var lng = parseFloat(val.lon);
@@ -231,7 +227,6 @@
           infowindow.open(map, marker);
         });
       })
-    });
   }
 
 

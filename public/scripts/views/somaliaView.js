@@ -212,13 +212,8 @@
       map.setCenter(center);
     });
 
-
-    // $.get('/strikes/somalia')
-    // .then(function(rows) {
-    //   console.log('somalia',rows);
-      // Data.loadAll(rows);
     array.forEach(val => {
-      console.log('in for each of somalia');
+      console.log('in for each of somalia', val);
       var lat = parseFloat(val.lat);
       var lng = parseFloat(val.lon);
       var marker = new google.maps.Marker({
@@ -231,10 +226,8 @@
       marker.addListener('click', function() {
         infowindow.open(map, marker);
       });
-      // })
     });
   }
-}
 
 
 
