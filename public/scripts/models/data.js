@@ -220,60 +220,31 @@
   };
 
 
-  Data.fetchAll = function(ctx, next) {
-      // console.log('in data.fetchAll');
-    $.get('/strikes/all')
-        .then(function(obj) {
-          if (obj.rowCount) {
-            console.log('in fetch all', obj.rows);
-            localStorage.strikes = obj.rows;
-            Data.loadAll(obj.rows);
-            var map = new google.maps.Map(document.getElementById('map'), mapOptions);
+  Data.fetchAll = function() {
+    $.get('/scripts/models/biggerdata.json')
+        .then(function(strikes) {
+          var map = new google.maps.Map(document.getElementById('map'), mapOptions);
 
-            google.maps.event.addDomListener(window, 'resize', function() {
-              var center = {lat: 18.783174, lng: 58.002993};
-              google.maps.event.trigger(map, 'resize');
-              map.setCenter(center);
+          google.maps.event.addDomListener(window, 'resize', function() {
+            var center = {lat: 18.783174, lng: 58.002993};
+            google.maps.event.trigger(map, 'resize');
+            map.setCenter(center);
+          });
+          strikes.forEach(val => {
+            var lat = parseFloat(val.lat);
+            var lng = parseFloat(val.lon);
+            var marker = new google.maps.Marker({
+              position: {lat: lat, lng: lng},
+              map: map,
             });
-            Data.allData.forEach(val => {
-              var lat = parseFloat(val.lat);
-              var lng = parseFloat(val.lon);
-              var marker = new google.maps.Marker({
-                position: {lat: lat, lng: lng},
-                map: map,
-              });
-              var infowindow = new google.maps.InfoWindow({
-                content: `town: ${val.town}, location: ${val.location}, deaths: ${val.deaths}, injuries: ${val.injuries}`
-              });
-              marker.addListener('click', function() {
-                infowindow.open(map, marker);
-              });
+            var infowindow = new google.maps.InfoWindow({
+              content: `town: ${val.town}, location: ${val.location}, deaths: ${val.deaths}, injuries: ${val.injuries}`
             });
-          } else {
-            $.ajax({
-              url: 'https://api.dronestre.am/data',
-              method: 'GET',
-              dataType: 'jsonp'
-            })
-             .then(rawData => {
-               rawData.strike.forEach(function(item) {
-                 var strike = new Data(item);
-                 strike.insertRecord();
-               });
-               Data.fetchAll();
-             });
-          }
-        }).then(function(obj) {
-          console.log('data alldata', Data.allData);
-        })
-        // .then(function(obj) {
-        //   var somalia = Data.allData.filter( val => {return val.country ==='Somalia'});
-        //   somaliaView.makeMap(somalia);
-        //   let yemen = Data.allData.filter( val => {return val.country ==='Yemen'});
-        //   somaliaView.makeMap(yemen);
-        //   let pakistan = Data.allData.filter( val => {val.country.indexOf('P') === 0});
-        //   somaliaView.makeMap(pakistan);
-        // });
+            marker.addListener('click', function() {
+              infowindow.open(map, marker);
+            });
+          });
+        });
   };
 
   module.Data = Data;
