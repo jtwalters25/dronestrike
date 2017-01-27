@@ -67,4 +67,26 @@ html {
     color: #d5df14;
   }
 
+
+  dl {
+    width: 100%;
+    overflow: hidden;
+    padding: 0;
+    margin: 0
+  }
+  dt {
+    float: left;
+    width: 37%;
+    padding: 0;
+    margin: 0;
+    font-weight: bold;
+    color: black;
+  }
+  dd {
+    float: left;
+    width: 63%;
+    padding: 0;
+    margin: 0;
+    color: darkred;
+  }
 }

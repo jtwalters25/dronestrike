@@ -6,7 +6,9 @@
     $('html').css({'height':'100%', 'margin':'0px', 'padding':'0'});
     $('body').css({'height':'100%', 'margin':'0px', 'padding':'0'});
     $('section').fadeOut();
+    Data.fetchAll();
     $('#map').fadeIn();
+    $('#legend').fadeIn();
   };
 
   mod.mapController = mapController;

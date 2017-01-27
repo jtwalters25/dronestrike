@@ -2,11 +2,10 @@
 
 (function(mod) {
   const homeController = {};
-  homeController.index = function(ctx, next) {
+  homeController.index = function() {
     $('html').css({'height':'100%', 'margin':'auto', 'padding':'inherit'});
     $('section').fadeOut();
     $('#home').fadeIn();
-    next();
   };
 
   mod.homeController = homeController;

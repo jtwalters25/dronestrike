@@ -48,8 +48,10 @@
       </section>
       <section class="tabContent" id="strikeStats">
         <div>
-          <h3>Stats</h3>
-            <canvas id="pieChart"></canvas>
+          <h3>Number of Strike Events</h3>
+          <canvas id="pieChart"></canvas>
+          <h3></h3>
+          <canvas id="lineChart"></canvas>
         </div>
       </section>
       <section class="tabContent" id="aboutUs">
@@ -69,32 +71,21 @@
       </section>
       <section id="map">
       </section>
-      <section id="map3">
-      </section>
-      <section id="map2">
-      </section>
-      <section id="map1">
-      </section>
+        <div id="legend"></div>
 
     <footer>DroneStrike &copy 2017</footer>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWWDM2zg3LWTdod7nMMrhamezsrAD3CM&v=3.exp&libraries=visualization"></script>
-    <script src="/vendor/scripts/handlebars.js"></script>
     <script src="/vendor/scripts/page.js"></script>
-
    <!-- Model files: -->
     <script src="/scripts/models/data.js"></script>
-    <!-- <script src="/scripts/models/bigdata.json"></script> -->
     <!-- View files: -->
     <script src="/scripts/views/mapView.js"></script>
     <script src="/scripts/views/somaliaView.js"></script>
     <script src="/scripts/views/yemenView.js"></script>
     <script src="/scripts/views/pakistanView.js"></script>
-    <script src="/scripts/views/mainView.js" type="text/Javascript"></script>
-    <script src="/scripts/views/dataView.js"></script>
-    <script src="/scripts/views/chartView.js"></script>
+    <script src="/scripts/views/lineChartView.js"></script>
     <script src="/scripts/views/pieChartView.js"></script>
 
     <!-- Controller files: -->

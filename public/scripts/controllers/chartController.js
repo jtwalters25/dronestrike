@@ -5,8 +5,8 @@
   chartController.index = function() {
     $('html').css({'height':'100%', 'margin':'auto', 'padding':'inherit'});
     $('section').fadeOut();
-    // chartView.makeChart();
     pieChartView.makeChart();
+    lineChartView.makeChart();
     $('#strikeStats').fadeIn();
   };
 
