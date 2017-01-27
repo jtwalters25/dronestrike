@@ -399,7 +399,7 @@
               if (!val[key]) val[key] = 'no info';
             }
             var infowindow = new google.maps.InfoWindow({
-              content: `<dl><dt>town:</dt><dd> ${val.town}</dd><dt>location:</dt> <dd>${val.location}, ${val.country}</dd><dt>deaths:</dt><dd>${val.deaths}</dd><dt>injuries:</dt> <dd>${val.injuries}</dd><dt>civilan deaths:</dt> <dd>${val.civilians}</dd><dt>children:</dt> <dd>${val.children}</dd><dt>description:</dt> <dd>${val.narrative}</dd></dl>`,
+              content: `<dl><div><dt>town:</dt><dd> ${val.town}</dd></div><br><div><dt>location:</dt> <dd>${val.location}, ${val.country}</dd></div><br><div><dt>deaths:</dt><dd>${val.deaths}</dd></div><br><div><dt>injuries:</dt> <dd>${val.injuries}</dd></div><br><div><dt>civilan deaths:</dt> <dd>${val.civilians}</dd></div><br><div><dt>children:</dt> <dd>${val.children}</dd></div><br><div><dt>description:</dt> <dd>${val.narrative}</dd></div></dl>`,
               maxWidth: 300
             });
             marker.addListener('click', function() {
@@ -424,7 +424,7 @@
           var infowindow = new google.maps.InfoWindow({
             content: `<div class="win">click on a missile for more information</div>`,
             position: {lat: 8.9285, lng: 72.4902},
-            maxWidth: 100
+            maxWidth: 150
           });
           infowindow.open(map);
         });

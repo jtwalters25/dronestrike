@@ -76,8 +76,8 @@ img{
 
  /* Makes the sample page fill the window. */
 #pieChart{
-  height: 50%;
-  width: 50%;
+  height: 10%;
+  width: 10%;
  }
 
  #map, #map1, #map2, #map3 {
