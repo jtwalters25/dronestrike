@@ -75,10 +75,9 @@ img{
 
 
  /* Makes the sample page fill the window. */
-#myChart{
-  height: 100%;
-  width: 100%;
-  text-align:
+#pieChart{
+  height: 50%;
+  width: 50%;
  }
 
  #map, #map1, #map2, #map3 {
