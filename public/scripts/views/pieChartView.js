@@ -1,37 +1,48 @@
 'use strict';
 
 (function(module) {
-    const pieChartView = {};
+  const pieChartView = {};
 
   pieChartView.makeChart = function() {
 
+    var yemenTotal = 0;
+    var pakistanTotal = 0;
+    var somaliaTotal = 0;
 
+    $.get('/scripts/models/biggerdata.json', function(data){
+      // pieChartView.countries = data
+      data.forEach(function(country){
+        if (country.country === 'Yemen') {
+          yemenTotal +=1;
+        }
+        if (country.country === 'Somalia') {
+          somaliaTotal +=1;
+        }
+        if (country.country === 'Pakistan') {
+          pakistanTotal +=1;
+          console.log(pakistanTotal);
+        }
+      })
+      localStorage.shit = JSON.stringify([yemenTotal, somaliaTotal, pakistanTotal])
+    })
+    // console.log(pakistanTotal);
 
-    var civilianArray =[2,4,13];
-    var childrenArray =[1,3,5];
-    var militantArray =[2,6,9];
-    var ctx = document.getElementById('pieChart').getContext('2d');
-    var myChart = new Chart(ctx, {
-      type: 'pie',
-      data: {
-        // labels: ['bush', 'obama', 'trump'],
-        datasets: [{
-          label: 'Civilians',
-          data: [2,3,4,5,6],
-          backgroundColor: 'rgba(11, 16, 124, 1)'
-        }, {
-          label: 'Children',
-          data: [3,5,6,7,8],
-          backgroundColor: 'rgba(208, 2, 2, 1)'
-        }, {
-          label: 'Militants',
-          data: [3,4,5,6,7],
-          backgroundColor: 'rgba(242, 255, 0, 0.89)'
-        }]
-      }
-    });
-  }
-
+    // .then(){
+      var ctx = document.getElementById('pieChart').getContext('2d');
+      var shit = JSON.parse(localStorage.shit)
+      var myChart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+          labels: ['yemen', 'somalia', 'pakistan'],
+          datasets: [{
+            // data: [yemenTotal, pakistanTotal, somaliaTotal],
+            data: shit,
+            backgroundColor: ['rgba(11, 16, 124, 1)','rgba(208, 2, 2, 1)','rgba(242, 255, 0, 0.89)']
+          }]
+        }
+      })
+    // }
+   }
   module.pieChartView = pieChartView;
 
 })(window);
