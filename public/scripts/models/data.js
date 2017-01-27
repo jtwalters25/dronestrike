@@ -251,7 +251,7 @@
             });
           } else {
             $.ajax({
-              url: 'http://api.dronestre.am/data',
+              url: 'https://api.dronestre.am/data',
               method: 'GET',
               dataType: 'jsonp'
             })
