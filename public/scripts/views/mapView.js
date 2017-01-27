@@ -367,7 +367,7 @@
     somaliaShape.setMap(map);
 
     somaliaShape.addListener('click', function() {
-      window.location.href='/somalia';
+      page.show('/somalia');
     });
 
   }

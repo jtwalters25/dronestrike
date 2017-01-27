@@ -81,7 +81,7 @@ img{
   text-align:
  }
 
- #map{
+ #map, #map1, #map2, #map3 {
    height: 70%;
    width: 80%;
    margin-left: 10%;

@@ -45,46 +45,13 @@
           }
         }).then(function(obj) {
           var somalia = Data.allData.filter( val => {return val.country ==='Somalia'});
-          console.log('somalia', somalia);
-          mapView.makeMap();
           somaliaView.makeMap(somalia);
           let yemen = Data.allData.filter( val => {return val.country ==='Yemen'});
+          somaliaView.makeMap(yemen);
           let pakistan = Data.allData.filter( val => {val.country.indexOf('P') === 0});
+          somaliaView.makeMap(pakistan);
         });
   };
-
-  Data.findWhere = function(field, value, callback) {
-    console.log(field, 'field', value, 'value');
-    console.log('data all data in findwhere', Data.allData);
-    console.log('findwhere', Data.allData.filter(strike => {strike.field.toUpperCase() === value.toUpperCase()}));
-  }
-
-  Data.findWhere = function(field, value, callback) {
-    $.get('/strikes/all')
-[
-    {
-      sql: 'SELECT * FROM strikes WHERE ' + field + ' = ?;',
-      data: [value]
-    }
-            ],
-            callback()
-  };
-
-  Data.allCountries = function() {
-    return Data.allData.map(function(strike) {
-      return strike.country;
-    })
-          .reduce(function(names, name) {
-            if (names.indexOf(name) === -1) {
-              names.push(name);
-            }
-            return names;
-          }, []);
-  };
-
-        // Data.allCategories = function(callback) {
-        //   webDB.execute('SELECT DISTINCT category FROM strikes;', callback);
-        // };
 
   module.Data = Data;
 })(window);

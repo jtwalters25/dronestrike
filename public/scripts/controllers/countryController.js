@@ -10,12 +10,12 @@
 //     page('/');
 //   }
 // };
-  countryController.index = function() {
-    $('#map').css('height', '100%');
+  countryController.index = function(ctx) {
+    $(`#${ctx.params.name}`).css('height', '100%');
     $('html').css({'height':'100%', 'margin':'0', 'padding':'0'});
     $('body').css({'height':'100%', 'margin':'0', 'padding':'0'});
     $('section').fadeOut();
-    $('#map').fadeIn();
+    $(`#${ctx.params.name}`).fadeIn();
   };
 
   mod.countryController = countryController;
