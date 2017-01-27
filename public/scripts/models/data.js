@@ -365,8 +365,8 @@
   Data.fetchAll = function() {
     $.get('/scripts/models/biggerdata.json')
         .then(function(strikes) {
+          var openWindow;
           var map = new google.maps.Map(document.getElementById('map'), mapOptions);
-
           google.maps.event.addDomListener(window, 'resize', function() {
             var center = {lat: 18.783174, lng: 58.002993};
             google.maps.event.trigger(map, 'resize');
@@ -395,27 +395,38 @@
                 map: map,
               });
             }
+            for (var key in val) {
+              if (!val[key]) val[key] = 'no info';
+            }
             var infowindow = new google.maps.InfoWindow({
-              content: `town: ${val.town}, location: ${val.location}, deaths: ${val.deaths}, injuries: ${val.injuries}`
+              content: `<dl><dt>town:</dt><dd> ${val.town}</dd><dt>location:</dt> <dd>${val.location}, ${val.country}</dd><dt>deaths:</dt><dd>${val.deaths}</dd><dt>injuries:</dt> <dd>${val.injuries}</dd><dt>civilan deaths:</dt> <dd>${val.civilians}</dd><dt>children:</dt> <dd>${val.children}</dd><dt>description:</dt> <dd>${val.narrative}</dd></dl>`,
+              maxWidth: 300
             });
             marker.addListener('click', function() {
+              if (openWindow) openWindow.close();
               infowindow.open(map, marker);
+              openWindow = infowindow;
             });
             yemenShape.setMap(map);
             somaliaShape.setMap(map);
             pakistanShape.setMap(map);
-            var legend = document.getElementById('legend');
-            for (var key in icons) {
-              var type = icons[key];
-              var name = type.name;
-              var icon = type.icon;
-              var div = document.createElement('div');
-              div.innerHTML = '<img src="' + icon + '"> ' + name;
-              legend.appendChild(div);
-            }
-
-            map.controls[google.maps.ControlPosition.LEFT_CENTER].push(legend);
+            // var legend = document.getElementById('legend');
+            // for (var key in icons) {
+            //   var type = icons[key];
+            //   var name = type.name;
+            //   var icon = type.icon;
+            //   var div = document.createElement('div');
+            //   div.innerHTML = '<img src="' + icon + '"> ' + name;
+            //   legend.appendChild(div);
+            // }
+            // map.controls[google.maps.ControlPosition.LEFT_CENTER].push(legend);
           });
+          var infowindow = new google.maps.InfoWindow({
+            content: `<div class="win">click on a missile for more information</div>`,
+            position: {lat: 8.9285, lng: 72.4902},
+            maxWidth: 100
+          });
+          infowindow.open(map);
         });
   };
 
